@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Talent Karate Cup — Classifica Ufficiale Post Autumn Karate Cup</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            dojo: {
+              navy: '#0B132B',
+              navyLight: '#1C2541',
+              crimson: '#C81E1E',
+              crimsonDark: '#991B1B',
+              gold: '#D97706',
+              goldLight: '#FEF3C7',
+              surface: '#F8FAFC',
+            },
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    /* Motivo geometrico discreto in stile asanoha / dojo */
+    .dojo-pattern {
+      background-color: #0B132B;
+      background-image:
+        radial-gradient(circle at 85% 15%, rgba(200, 30, 30, 0.24) 0%, transparent 45%),
+        radial-gradient(circle at 12% 85%, rgba(217, 119, 6, 0.18) 0%, transparent 42%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.03) 25%, transparent 25%),
+        linear-gradient(225deg, rgba(255, 255, 255, 0.03) 25%, transparent 25%);
+      background-size: 100% 100%, 100% 100%, 28px 28px, 28px 28px;
+    }
+
+    /* Stili dedicati alla stampa della vista filtrata corrente */
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+      body {
+        background: #ffffff !important;
+        color: #0f172a !important;
+      }
+      .print-break-inside-avoid {
+        break-inside: avoid;
+      }
+      .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl {
+        box-shadow: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-dojo-surface text-slate-800 font-sans antialiased min-h-screen flex flex-col selection:bg-dojo-crimson selection:text-white">
+
+  <!-- HEADER & HERO IN TEMA KARATE / ARTI MARZIALI -->
+  <header class="dojo-pattern text-white relative overflow-hidden border-b-4 border-dojo-crimson">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-10 sm:pt-8 sm:pb-12 relative z-10">
+      <!-- Barra superiore con titolo circuito e pulsante stampa -->
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/10 border border-amber-400/40 backdrop-blur-sm text-xs sm:text-sm font-semibold text-amber-300">
+          <!-- Icona emblematica Karate / Cintura e stella -->
+          <svg class="w-4 h-4 text-amber-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+          </svg>
+          <span>Talent Karate Cup — Post 1ª Gara: Autumn Karate Cup</span>
+        </div>
+
+        <button
+          type="button"
+          onclick="window.print()"
+          class="no-print inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 active:scale-[0.99] text-white text-xs sm:text-sm font-semibold border border-white/15 transition cursor-pointer"
+          title="Stampa o salva in PDF la classifica filtrata corrente"
+        >
+          <svg class="w-4 h-4 text-amber-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 6 2 18 2 18 9" />
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+            <rect x="6" y="14" width="12" height="8" />
+          </svg>
+          <span>Stampa / Esporta PDF</span>
+        </button>
+      </div>
+
+      <!-- Titolo Hero e descrizione -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
+        <div class="lg:col-span-8">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="inline-block w-2.5 h-8 rounded-full bg-dojo-crimson"></span>
+            <span class="text-xs sm:text-sm uppercase tracking-[0.2em] font-bold text-amber-400">
+              Classifica Ufficiale Circuito Talent
+            </span>
+          </div>
+          <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
+            Talent Karate Cup
+            <span class="block text-lg sm:text-2xl font-bold text-slate-200 mt-1">
+              Risultati &amp; Punteggi dopo <span class="text-amber-400">Autumn Karate Cup</span>
+            </span>
+          </h1>
+          <p class="mt-3 text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed">
+            Consulta in tempo reale tutti i risultati ufficiali estratti dal foglio <strong class="text-white">Classifica Talent</strong>:
+            <span class="text-amber-300 font-medium">Posizione Gara Autumn Karate Cup</span>,
+            <span class="text-amber-300 font-medium">Punti Partecipazione</span>,
+            <span class="text-amber-300 font-medium">Punti Piazzamento Talent</span> e
+            <span class="text-amber-300 font-medium">Totale dei Punti</span>.
+          </p>
+        </div>
+
+        <!-- Pulsanti rapidi di vista -->
+        <div class="lg:col-span-4 no-print">
+          <div class="bg-dojo-navyLight/90 border border-white/10 rounded-2xl p-1.5 grid grid-cols-2 gap-1.5 shadow-xl">
+            <button
+              id="btn-view-atleti"
+              type="button"
+              onclick="setView('atleti')"
+              class="view-tab py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition text-center cursor-pointer bg-dojo-crimson text-white shadow"
+            >
+              Classifica Atleti
+            </button>
+            <button
+              id="btn-view-categorie"
+              type="button"
+              onclick="setView('categorie')"
+              class="view-tab py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition text-center cursor-pointer text-slate-300 hover:text-white hover:bg-white/5"
+            >
+              Per Categoria
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTATORI KPI IN TEMPO REALE -->
+      <div id="kpi-grid" class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mt-8">
+        <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-4 sm:p-5">
+          <div class="text-xs font-semibold uppercase tracking-wider text-slate-300">Iscrizioni / Risultati</div>
+          <div id="kpi-iscrizioni" class="text-2xl sm:text-3xl font-black text-white mt-1 tabular-nums">82</div>
+          <div id="kpi-iscrizioni-sub" class="text-xs text-amber-300/90 mt-1">Su 82 risultati ufficiali</div>
+        </div>
+
+        <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-4 sm:p-5">
+          <div class="text-xs font-semibold uppercase tracking-wider text-slate-300">Categorie</div>
+          <div id="kpi-categorie" class="text-2xl sm:text-3xl font-black text-white mt-1 tabular-nums">20</div>
+          <div id="kpi-categorie-sub" class="text-xs text-slate-300 mt-1">Kata &amp; Kumite agonistico</div>
+        </div>
+
+        <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-4 sm:p-5">
+          <div class="text-xs font-semibold uppercase tracking-wider text-slate-300">Società</div>
+          <div id="kpi-societa" class="text-2xl sm:text-3xl font-black text-white mt-1 tabular-nums">23</div>
+          <div id="kpi-societa-sub" class="text-xs text-slate-300 mt-1">ASD / Società partecipanti</div>
+        </div>
+
+        <div class="bg-gradient-to-br from-amber-500/25 to-dojo-crimson/25 backdrop-blur-md border border-amber-400/40 rounded-2xl p-4 sm:p-5">
+          <div class="text-xs font-semibold uppercase tracking-wider text-amber-300">Totale dei Punti Assegnati</div>
+          <div id="kpi-punti" class="text-2xl sm:text-3xl font-black text-amber-300 mt-1 tabular-nums">0</div>
+          <div id="kpi-punti-sub" class="text-xs text-amber-100/80 mt-1">Somma Totale dei Punti</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENUTO PRINCIPALE -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 -mt-5 pb-14 relative z-20">
+
+    <!-- PANNELLO FILTRI E RICERCA ISTANTANEA -->
+    <section aria-label="Filtri di ricerca" class="no-print bg-white rounded-2xl shadow-lg border border-slate-200/90 p-4 sm:p-6 mb-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 items-end">
+
+        <!-- Ricerca nome o cognome -->
+        <div class="lg:col-span-4">
+          <label for="search-input" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+            Ricerca Atleta (Nome o Cognome)
+          </label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-3.5 flex items-center text-slate-400 pointer-events-none">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+            </span>
+            <input
+              id="search-input"
+              type="text"
+              placeholder="Es. Rossi, Lorenzo, Gabriele..."
+              oninput="handleSearchInput(this.value)"
+              class="w-full pl-10 pr-10 py-2.5 rounded-xl border border-slate-300 focus:border-dojo-crimson focus:ring-2 focus:ring-dojo-crimson/20 outline-none text-sm font-medium text-slate-800 placeholder:text-slate-400 transition"
+            />
+            <button
+              id="clear-search-btn"
+              type="button"
+              onclick="clearSearch()"
+              title="Pulisci ricerca"
+              class="hidden absolute inset-y-0 right-2.5 flex items-center justify-center w-7 h-7 my-auto rounded-lg text-slate-400 hover:text-dojo-crimson hover:bg-red-50 transition cursor-pointer"
+            >
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Filtro Società -->
+        <div class="lg:col-span-3">
+          <label for="societa-select" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+            Società di Appartenenza
+          </label>
+          <select
+            id="societa-select"
+            onchange="handleSocietaChange(this.value)"
+            class="w-full py-2.5 px-3.5 rounded-xl border border-slate-300 focus:border-dojo-crimson focus:ring-2 focus:ring-dojo-crimson/20 outline-none text-sm font-medium text-slate-800 bg-white transition cursor-pointer"
+          >
+            <option value="">Tutte le Società (23)</option>
+          </select>
+        </div>
+
+        <!-- Filtro Categoria -->
+        <div class="lg:col-span-3">
+          <label for="categoria-select" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+            Categoria
+          </label>
+          <select
+            id="categoria-select"
+            onchange="handleCategoriaChange(this.value)"
+            class="w-full py-2.5 px-3.5 rounded-xl border border-slate-300 focus:border-dojo-crimson focus:ring-2 focus:ring-dojo-crimson/20 outline-none text-sm font-medium text-slate-800 bg-white transition cursor-pointer"
+          >
+            <option value="">Tutte le Categorie (20)</option>
+          </select>
+        </div>
+
+        <!-- Ordinamento -->
+        <div class="lg:col-span-2">
+          <label for="sort-select" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+            Ordinamento
+          </label>
+          <select
+            id="sort-select"
+            onchange="handleSortChange(this.value)"
+            class="w-full py-2.5 px-3 rounded-xl border border-slate-300 focus:border-dojo-crimson focus:ring-2 focus:ring-dojo-crimson/20 outline-none text-sm font-medium text-slate-800 bg-white transition cursor-pointer"
+          >
+            <option value="punti_desc">Totale dei Punti (Alto → Basso)</option>
+            <option value="pos_asc">Posizione Gara Autumn (1° → 9°)</option>
+            <option value="cognome_asc">Cognome (A → Z)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Barra stato filtri attivi & reset rapido -->
+      <div class="mt-4 pt-3.5 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm">
+        <div id="active-filters-summary" class="text-slate-600 flex flex-wrap items-center gap-2">
+          <span>Visualizzazione completa di tutti i risultati ufficiali.</span>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <!-- Controlli espandi/comprimi visibili nella vista per categoria -->
+          <div id="category-expand-controls" class="hidden items-center gap-1.5 mr-1">
+            <button
+              type="button"
+              onclick="setAllCategoriesExpanded(true)"
+              class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition cursor-pointer"
+            >
+              Espandi tutte
+            </button>
+            <button
+              type="button"
+              onclick="setAllCategoriesExpanded(false)"
+              class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition cursor-pointer"
+            >
+              Comprimi tutte
+            </button>
+          </div>
+
+          <button
+            id="reset-all-btn"
+            type="button"
+            onclick="resetAllFilters()"
+            class="hidden inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-50 hover:bg-red-100 text-dojo-crimson text-xs font-bold transition cursor-pointer"
+          >
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+              <path d="M3 3v5h5" />
+            </svg>
+            <span>Reimposta filtri</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- BANNER RIEPILOGO SOCIETÀ SELEZIONATA -->
+    <div id="selected-societa-banner" class="hidden mb-6 rounded-2xl bg-gradient-to-r from-dojo-navy to-dojo-navyLight text-white p-5 sm:p-6 shadow-md border-l-4 border-amber-400">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+          <span class="inline-block text-[11px] font-bold uppercase tracking-widest text-amber-300 bg-white/10 px-2.5 py-0.5 rounded-full mb-1.5">
+            Società Selezionata
+          </span>
+          <h2 id="soc-banner-title" class="text-xl sm:text-2xl font-black tracking-tight">—</h2>
+          <p id="soc-banner-sub" class="text-xs sm:text-sm text-slate-300 mt-0.5">—</p>
+        </div>
+
+        <div class="grid grid-cols-3 sm:grid-cols-5 gap-2.5 text-center">
+          <div class="bg-white/10 rounded-xl px-3 py-2">
+            <div class="text-[11px] text-slate-300 font-medium">Iscrizioni</div>
+            <div id="soc-stat-iscr" class="text-lg font-extrabold text-white tabular-nums">0</div>
+          </div>
+          <div class="bg-amber-400/20 border border-amber-300/30 rounded-xl px-3 py-2">
+            <div class="text-[11px] text-amber-200 font-semibold">1° Posti</div>
+            <div id="soc-stat-oro" class="text-lg font-extrabold text-amber-300 tabular-nums">0</div>
+          </div>
+          <div class="bg-slate-300/15 border border-slate-300/25 rounded-xl px-3 py-2">
+            <div class="text-[11px] text-slate-200 font-semibold">2° Posti</div>
+            <div id="soc-stat-argento" class="text-lg font-extrabold text-slate-100 tabular-nums">0</div>
+          </div>
+          <div class="bg-orange-500/20 border border-orange-300/30 rounded-xl px-3 py-2">
+            <div class="text-[11px] text-orange-200 font-semibold">3° Posti</div>
+            <div id="soc-stat-bronzo" class="text-lg font-extrabold text-orange-200 tabular-nums">0</div>
+          </div>
+          <div class="col-span-2 sm:col-span-1 bg-dojo-crimson/90 rounded-xl px-3 py-2">
+            <div class="text-[11px] text-red-100 font-semibold">Totale Punti</div>
+            <div id="soc-stat-punti" class="text-lg font-black text-white tabular-nums">0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTENITORE VISTE DINAMICHE -->
+    <div id="app-content"></div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-dojo-navy text-slate-300 py-6 border-t border-white/10 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs sm:text-sm">
+      <div>
+        <strong class="text-white">Talent Karate Cup</strong> — Classifica ufficiale post 1ª gara <span class="text-amber-400 font-semibold">Autumn Karate Cup</span>.
+      </div>
+      <div class="text-slate-400">
+        Fonte dati: Foglio <span class="text-slate-200 font-medium">Classifica Talent</span> (Colonne H, I, J, K)
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // =========================================================================
+    // DATI UFFICIALI (82 RECORD — FOGLIO "Classifica Talent")
+    // =========================================================================
+    const RAW_DATA = [
+      {"cognome":"ROSSI","nome":"EDOARDO","data_nascita":"21/08/2011","societa":"ANPS GS FROSINONE ASD","cat_id":101,"categoria":"CADETTI - M - KATA - MARRONE-NERA","posizione_autumn":1,"punti_partecipazione":10,"punti_piazzamento":100,"totale_punti":110},
+      {"cognome":"CARACCIA","nome":"FILIPPO","data_nascita":"11/11/2011","societa":"CPGA KARATEASD","cat_id":101,"categoria":"CADETTI - M - KATA - MARRONE-NERA","posizione_autumn":2,"punti_partecipazione":10,"punti_piazzamento":70,"totale_punti":80},
+      {"cognome":"BATTISTA","nome":"PIERPAOLO","data_nascita":"31/07/2012","societa":"ASD ACCADEMIA TENRYU K.","cat_id":101,"categoria":"CADETTI - M - KATA - MARRONE-NERA","posizione_autumn":3,"punti_partecipazione":10,"punti_piazzamento":50,"totale_punti":60},
+      {"cognome":"TANASACHE","nome":"JOSIF RADU","data_nascita":"24/02/2012","societa":"RYUJIN TO TORA","cat_id":101,"categoria":"CADETTI - M - KATA - MARRONE-NERA","posizione_autumn":3,"punti_partecipazione":10,"punti_piazzamento":50,"totale_punti":60},
+      {"cognome":"FARINA","nome":"GABRIELE","data_nascita":"08/12/2011","societa":"RYUJIN TO TORA","cat_id":101,"categoria":"CADETTI - M - KATA - MARRONE-NERA","posizione_autumn":5,"punti_partecipazione":10,"punti_piazzamento":30,"totale_punti":40},
+      {"cognome":"MOCANU","nome":"ADRIAN NICOLAE","data_nascita":"22/12/2011","societa":"ASD LE ARTI NEW SCHOOL","cat_id":101,"categoria":"CADETTI - M - KATA - MARRONE-NERA","posizione_autumn":5,"punti_partecipazione":10,"punti_piazzamento":30,"totale_punti":40},
+      {"cognome":"CRESCENZI","nome":"PAOLO","data_nascita":"26/08/2012","societa":"TEAM KARATE GROTTOLI","cat_id":101,"categoria":"CADETTI - M - KATA - MARRONE-NERA","posizione_autumn":7,"punti_partecipazione":10,"punti_piazzamento":20,"totale_punti":30},
+      {"cognome":"VITIELLO","nome":"LUCA","data_nascita":"10/08/2012","societa":"SERENA MENTE","cat_id":101,"categoria":"CADETTI - M - KATA - MARRONE-NERA","posizione_autumn":7,"punti_partecipazione":10,"punti_piazzamento":20,"totale_punti":30},
+      {"cognome":"DE AMICIS","nome":"MATTIA","data_nascita":"04/01/2011","societa":"ASD DE FILIPPIS","cat_id":101,"categoria":"CADETTI - M - KATA - MARRONE-NERA","posizione_autumn":9,"punti_partecipazione":10,"punti_piazzamento":0,"totale_punti":10},
+      {"cognome":"PRIMITERRA","nome":"SIRIA","data_nascita":"16/01/2012","societa":"ASD ACCADEMIA TENRYU K.","cat_id":104,"categoria":"CADETTI - F - KATA - MARRONE-NERA","posizione_autumn":1,"punti_partecipazione":10,"punti_piazzamento":100,"totale_punti":110},
+      {"cognome":"DURANTE","nome":"GAIA","data_nascita":"17/05/2013","societa":"ASD ACCADEMIA TENRYU K.","cat_id":104,"categoria":"CADETTI - F - KATA - MARRONE-NERA","posizione_autumn":2,"punti_partecipazione":10,"punti_piazzamento":70,"totale_punti":80},
+      {"cognome":"IACOMINO","nome":"FEDERICA","data_nascita":"N/D","societa":"AN POLIZIA DI STATO SALERNO","cat_id":104,"categoria":"CADETTI - F - KATA - MARRONE-NERA","posizione_autumn":3,"punti_partecipazione":10,"punti_piazzamento":50,"totale_punti":60},
+      {"cognome":"LALLI","nome":"GEA","data_nascita":"01/01/2012","societa":"AI DAI CLUB VILLA ADRIANA","cat_id":104,"categoria":"CADETTI - F - KATA - MARRONE-NERA","posizione_autumn":3,"punti_partecipazione":10,"punti_piazzamento":50,"totale_punti":60},
+      {"cognome":"MARTUCCI","nome":"VIOLA","data_nascita":"19/01/2012","societa":"TKBM MANUEL BRUNO","cat_id":104,"categoria":"CADETTI - F - KATA - MARRONE-NERA","posizione_autumn":5,"punti_partecipazione":10,"punti_piazzamento":30,"totale_punti":40},
+      {"cognome":"ABATECOLA","nome":"SOFIA","data_nascita":"19/11/2012","societa":"RYUJIN TO TORA","cat_id":104,"categoria":"CADETTI - F - KATA - MARRONE-NERA","posizione_autumn":5,"punti_partecipazione":10,"punti_piazzamento":30,"totale_punti":40},
+      {"cognome":"FERDINANDI","nome":"MARIACHIARA","data_nascita":"17/05/2012","societa":"TKBM MANUEL BRUNO","cat_id":104,"categoria":"CADETTI - F - KATA - MARRONE-NERA","posizione_autumn":7,"punti_partecipazione":10,"punti_piazzamento":20,"totale_punti":30},
+      {"cognome":"PUGLIESE","nome":"SAMIRA","data_nascita":"10/07/2011","societa":"RYUJIN TO TORA","cat_id":104,"categoria":"CADETTI - F - KATA - MARRONE-NERA","posizione_autumn":7,"punti_partecipazione":10,"punti_piazzamento":20,"totale_punti":30},
+      {"cognome":"NDRECA","nome":"AURELIO","data_nascita":"13/12/2011","societa":"ASD LE ARTI NEW SCHOOL","cat_id":107,"categoria":"CADETTI - M - KUMITE - MARRONE-NERA - -52 KG - -52 kg","posizione_autumn":1,"punti_partecipazione":10,"punti_piazzamento":100,"totale_punti":110},
+      {"cognome":"LIÒ","nome":"GIUSEPPE","data_nascita":"29/08/2011","societa":"TEAM KARATE GROTTOLI","cat_id":107,"categoria":"CADETTI - M - KUMITE - MARRONE-NERA - -52 KG - -52 kg","posizione_autumn":2,"punti_partecipazione":10,"punti_piazzamento":70,"totale_punti":80},
+      {"cognome":"DE CESARE","nome":"CRISTIANO","data_nascita":"13/02/2012","societa":"CSKT KHALID","cat_id":107,"categoria":"CADETTI - M - KUMITE - MARRONE-NERA - -52 KG - -52 kg","posizione_autumn":3,"punti_partecipazione":10,"punti_piazzamento":50,"totale_punti":60},
+      {"cognome":"CAPORICCI","nome":"MANUEL","data_nascita":"16/12/2011","societa":"TKBM MANUEL BRUNO","cat_id":110,"categoria":"CADETTI - M - KUMITE - MARRONE-NERA - -57 KG - -57 kg","posizione_autumn":3,"punti_partecipazione":10,"punti_piazzamento":50,"totale_punti":60},
+      {"cognome":"SCOTILLO","nome":"MARIO","data_nascita":"26/10/2011","societa":"AN POLIZIA DI STATO SALERNO","cat_id":110,"categoria":"CADETTI - M - KUMITE - MARRONE-NERA - -57 KG - -57 kg","posizione_autumn":5,"punti_partecipazione":10,"punti_piazzamento":30,"totale_punti":40},
+      {"cognome":"IACOMINO","nome":"LUIGI","data_nascita":"30/11/2012","societa":"AN POLIZIA DI STATO SALERNO","cat_id":110,"categoria":"CADETTI - M - KUMITE - MARRONE-NERA - -57 KG - -57 kg","posizione_autumn":7,"punti_partecipazione":10,"punti_piazzamento":20,"totale_punti":30},
+      {"cognome":"BALDASSARRE","nome":"SAMUEL","data_nascita":"15/09/2011","societa":"ASD KARATE LION AVEZZANO","cat_id":113,"categoria":"CADETTI - M - KUMITE - MARRONE-NERA - -63 KG - -63 kg","posizione_autumn":1,"punti_partecipazione":10,"punti_piazzamento":100,"totale_punti":110},
+      {"cognome":"MARTELLI","nome":"MARCO","data_nascita":"17/08/2012","societa":"SERENA MENTE","cat_id":113,"categoria":"CADETTI - M - KUMITE - MARRONE-NERA - -63 KG - -63 kg","posizione_autumn":2,"punti_partecipazione":10,"punti_piazzamento":70,"totale_punti":80},
+      {"cognome":"DAMERINO","nome":"DIEGO","data_nascita":"03/10/2011","societa":"SSD SPORT E PASSIONE","cat_id":113,"categoria":"CADETTI - M - KUMITE - MARRONE-NERA - -63 KG - -63 kg","posizione_autumn":3,"punti_partecipazione":10,"punti_piazzamento":50,"totale_punti":60},
+      {"cognome":"COLAIACOMO","nome":"DAVID","data_nascita":"13/09/2011","societa":"ANPS GS FROSINONE ASD","cat_id":113,"categoria":"CADETTI - M - KUMITE - MARRONE-NERA - -63 KG - -63 kg","posizione_autumn":5,"punti_partecipazione":10,"punti_piazzamento":30,"totale_punti":40},
+      {"cognome":"STRIANO","nome":"GABRIEL","data_nascita":"15/06/2011","societa":"AN POLIZIA DI STATO SALERNO","cat_id":113,"categoria":"CADETTI - M - KUMITE - MARRONE-NERA - -63 KG - -63 kg","posizione_autumn":7,"punti_partecipazione":10,"punti_piazzamento":20,"totale_punti":30},
+      {"cognome":"SACCO","nome":"ANTHONY","data_nascita":"17/09/2013","societa":"TKBM MANUEL BRUNO","cat_id":113,"categoria":"CADETTI - M - KUMITE - MARRONE-NERA - -63 KG - -63 kg","posizione_autumn":9,"punti_partecipazione":10,"punti_piazzamento":0,"totale_punti":10},
+      {"cognome":"LISI","nome":"MATTEO","data_nascita":"29/07/2011","societa":"ANPS GS FROSINONE ASD","cat_id":116,"categoria":"CADETTI - M - KUMITE - MARRONE-NERA - -70 KG - -70 kg","posizione_autumn":1,"punti_partecipazione":10,"punti_piazzamento":100,"totale_punti":110},
+      {"cognome":"RICCIO","nome":"EMANUELE","data_nascita":"07/12/2011","societa":"TKBM MANUEL BRUNO","cat_id":116,"categoria":"CADETTI - M - KUMITE - MARRONE-NERA - -70 KG - -70 kg","posizione_autumn":2,"punti_partecipazione":10,"punti_piazzamento":70,"totale_punti":80},
+      {"cognome":"OLIVERIO","nome":"LORENZO","data_nascita":"21/09/2011","societa":"ACADEMY PISANTI","cat_id":116,"categoria":"CADETTI - M - KUMITE - MARRONE-NERA - -70 KG - -70 kg","posizione_autumn":3,"punti_partecipazione":10,"punti_piazzamento":50,"totale_punti":60},
+      {"cognome":"MICLEA SAVA","nome":"DAVID GABRIEL","data_nascita":"11/08/2011","societa":"ASD LE ARTI NEW SCHOOL","cat_id":119,"categoria":"CADETTI - M - KUMITE - MARRONE-NERA - +70 KG - +70 kg","posizione_autumn":1,"punti_partecipazione":10,"punti_piazzamento":100,"totale_punti":110},
+      {"cognome":"MASTELLONE","nome":"MARIO","data_nascita":"03/12/2011","societa":"SERENA MENTE","cat_id":119,"categoria":"CADETTI - M - KUMITE - MARRONE-NERA - +70 KG - +70 kg","posizione_autumn":2,"punti_partecipazione":10,"punti_piazzamento":70,"totale_punti":80},
+      {"cognome":"CASSANDRI","nome":"DAVIDE","data_nascita":"28/03/2012","societa":"CSKT KHALID","cat_id":119,"categoria":"CADETTI - M - KUMITE - MARRONE-NERA - +70 KG - +70 kg","posizione_autumn":3,"punti_partecipazione":10,"punti_piazzamento":50,"totale_punti":60},
+      {"cognome":"VITIELLO","nome":"LUCA","data_nascita":"10/08/2012","societa":"SERENA MENTE","cat_id":119,"categoria":"CADETTI - M - KUMITE - MARRONE-NERA - +70 KG - +70 kg","posizione_autumn":3,"punti_partecipazione":10,"punti_piazzamento":50,"totale_punti":60},
+      {"cognome":"MELIS","nome":"LARA","data_nascita":"12/01/2012","societa":"TEAM KARATE GROTTOLI","cat_id":122,"categoria":"CADETTI - F - KUMITE - MARRONE-NERA - -47 KG - -47 kg","posizione_autumn":1,"punti_partecipazione":10,"punti_piazzamento":100,"totale_punti":110},
+      {"cognome":"D'AMBROGIO","nome":"MARTA","data_nascita":"19/07/2011","societa":"FUNAKOSHI KARATE SORA","cat_id":122,"categoria":"CADETTI - F - KUMITE - MARRONE-NERA - -47 KG - -47 kg","posizione_autumn":2,"punti_partecipazione":10,"punti_piazzamento":70,"totale_punti":80},
+      {"cognome":"RETAGOUI ALCAREZ","nome":"TIZIANA","data_nascita":"30/12/2011","societa":"BATTERFLY DANCE","cat_id":125,"categoria":"CADETTI - F - KUMITE - MARRONE-NERA - -54 KG - -54 kg","posizione_autumn":2,"punti_partecipazione":10,"punti_piazzamento":70,"totale_punti":80},
+      {"cognome":"SORRENTINO","nome":"ISABEL","data_nascita":"16/09/2011","societa":"TKBM MANUEL BRUNO","cat_id":125,"categoria":"CADETTI - F - KUMITE - MARRONE-NERA - -54 KG - -54 kg","posizione_autumn":1,"punti_partecipazione":10,"punti_piazzamento":100,"totale_punti":110},
+      {"cognome":"COZZOLINO","nome":"NICOLE","data_nascita":"05/09/2012","societa":"SERENA MENTE","cat_id":125,"categoria":"CADETTI - F - KUMITE - MARRONE-NERA - -54 KG - -54 kg","posizione_autumn":2,"punti_partecipazione":10,"punti_piazzamento":70,"totale_punti":80},
+      {"cognome":"LELI","nome":"EDOARDO","data_nascita":"01/02/2009","societa":"RYUJIN TO TORA","cat_id":134,"categoria":"JUNIORES - M - KATA - MARRONE-NERA","posizione_autumn":1,"punti_partecipazione":10,"punti_piazzamento":100,"totale_punti":110},
+      {"cognome":"DELL'UOMO","nome":"DAVIDE","data_nascita":"21/07/2009","societa":"ANPS GS FROSINONE ASD","cat_id":134,"categoria":"JUNIORES - M - KATA - MARRONE-NERA","posizione_autumn":2,"punti_partecipazione":10,"punti_piazzamento":70,"totale_punti":80},
+      {"cognome":"DE SANCTIS","nome":"RICCARDO","data_nascita":"06/10/2010","societa":"ANPS GS FROSINONE ASD","cat_id":134,"categoria":"JUNIORES - M - KATA - MARRONE-NERA","posizione_autumn":3,"punti_partecipazione":10,"punti_piazzamento":50,"totale_punti":60},
+      {"cognome":"VIVANI","nome":"LORENZO","data_nascita":"08/03/2009","societa":"CSKT KHALID","cat_id":134,"categoria":"JUNIORES - M - KATA - MARRONE-NERA","posizione_autumn":3,"punti_partecipazione":10,"punti_piazzamento":50,"totale_punti":60},
+      {"cognome":"PALLAGROSI","nome":"CRISTIAN","data_nascita":"01/05/2010","societa":"USD CENTOCELLE","cat_id":134,"categoria":"JUNIORES - M - KATA - MARRONE-NERA","posizione_autumn":5,"punti_partecipazione":10,"punti_piazzamento":30,"totale_punti":40},
+      {"cognome":"VITALE","nome":"SAMUELE","data_nascita":"18/06/2009","societa":"RYUJIN TO TORA","cat_id":134,"categoria":"JUNIORES - M - KATA - MARRONE-NERA","posizione_autumn":5,"punti_partecipazione":10,"punti_piazzamento":30,"totale_punti":40},
+      {"cognome":"CANNAVACCIUOLO","nome":"PIETRO","data_nascita":"12/08/2010","societa":"SERENA MENTE","cat_id":134,"categoria":"JUNIORES - M - KATA - MARRONE-NERA","posizione_autumn":7,"punti_partecipazione":10,"punti_piazzamento":20,"totale_punti":30},
+      {"cognome":"D'ASCENZO","nome":"MARIASOLE","data_nascita":"19/10/2010","societa":"CPGA KARATEASD","cat_id":137,"categoria":"JUNIORES - F - KATA - MARRONE-NERA","posizione_autumn":1,"punti_partecipazione":10,"punti_piazzamento":100,"totale_punti":110},
+      {"cognome":"COOPER","nome":"GRACE","data_nascita":"07/07/2010","societa":"ASD ACCADEMIA TENRYU K.","cat_id":137,"categoria":"JUNIORES - F - KATA - MARRONE-NERA","posizione_autumn":3,"punti_partecipazione":10,"punti_piazzamento":50,"totale_punti":60},
+      {"cognome":"DE ANGELIS","nome":"ELENA","data_nascita":"28/03/2009","societa":"ASD DE FILIPPIS","cat_id":137,"categoria":"JUNIORES - F - KATA - MARRONE-NERA","posizione_autumn":3,"punti_partecipazione":10,"punti_piazzamento":50,"totale_punti":60},
+      {"cognome":"GABRIELE","nome":"CAROLINA","data_nascita":"19/02/2009","societa":"OTOKU VEROLI","cat_id":137,"categoria":"JUNIORES - F - KATA - MARRONE-NERA","posizione_autumn":3,"punti_partecipazione":10,"punti_piazzamento":50,"totale_punti":60},
+      {"cognome":"VIVANI","nome":"LORENZO","data_nascita":"08/03/2009","societa":"CSKT KHALID","cat_id":140,"categoria":"JUNIORES - M - KUMITE - MARRONE-NERA - -55 KG - -55 kg","posizione_autumn":1,"punti_partecipazione":10,"punti_piazzamento":100,"totale_punti":110},
+      {"cognome":"FIORLETTA","nome":"DIEGO","data_nascita":"23/12/2009","societa":"ANPS GS FROSINONE ASD","cat_id":140,"categoria":"JUNIORES - M - KUMITE - MARRONE-NERA - -55 KG - -55 kg","posizione_autumn":2,"punti_partecipazione":10,"punti_piazzamento":70,"totale_punti":80},
+      {"cognome":"ZITO","nome":"FORTUNATO","data_nascita":"26/04/2010","societa":"SSD SPORT E PASSIONE","cat_id":143,"categoria":"JUNIORES - M - KUMITE - MARRONE-NERA - -61 KG - -61 kg","posizione_autumn":2,"punti_partecipazione":10,"punti_piazzamento":70,"totale_punti":80},
+      {"cognome":"FOCHETTI","nome":"DIEGO","data_nascita":"06/04/2010","societa":"OLIMPO SPORTING CLUB","cat_id":143,"categoria":"JUNIORES - M - KUMITE - MARRONE-NERA - -61 KG - -61 kg","posizione_autumn":3,"punti_partecipazione":10,"punti_piazzamento":50,"totale_punti":60},
+      {"cognome":"DONZELLI","nome":"RICCARDO","data_nascita":"16/10/2010","societa":"CSTK KARATE TEAM","cat_id":146,"categoria":"JUNIORES - M - KUMITE - MARRONE-NERA - -68 KG - -68 kg","posizione_autumn":1,"punti_partecipazione":10,"punti_piazzamento":100,"totale_punti":110},
+      {"cognome":"AMABILI","nome":"CHRISTIAN","data_nascita":"27/08/2010","societa":"CSTK KARATE TEAM","cat_id":146,"categoria":"JUNIORES - M - KUMITE - MARRONE-NERA - -68 KG - -68 kg","posizione_autumn":2,"punti_partecipazione":10,"punti_piazzamento":70,"totale_punti":80},
+      {"cognome":"ALFIERI","nome":"SALVATORE JR","data_nascita":"12/10/2009","societa":"AN POLIZIA DI STATO SALERNO","cat_id":146,"categoria":"JUNIORES - M - KUMITE - MARRONE-NERA - -68 KG - -68 kg","posizione_autumn":3,"punti_partecipazione":10,"punti_piazzamento":50,"totale_punti":60},
+      {"cognome":"GALLOTTI","nome":"FILIPPO","data_nascita":"01/01/2010","societa":"AI DAI CLUB VILLA ADRIANA","cat_id":146,"categoria":"JUNIORES - M - KUMITE - MARRONE-NERA - -68 KG - -68 kg","posizione_autumn":3,"punti_partecipazione":10,"punti_piazzamento":50,"totale_punti":60},
+      {"cognome":"DI CASIMIRRO","nome":"FILIPPO","data_nascita":"21/11/2010","societa":"ASD TEMPUSPORT","cat_id":146,"categoria":"JUNIORES - M - KUMITE - MARRONE-NERA - -68 KG - -68 kg","posizione_autumn":5,"punti_partecipazione":10,"punti_piazzamento":30,"totale_punti":40},
+      {"cognome":"DI FILIPPO","nome":"FLAVIO","data_nascita":"29/07/2010","societa":"SSD SPORT E PASSIONE","cat_id":146,"categoria":"JUNIORES - M - KUMITE - MARRONE-NERA - -68 KG - -68 kg","posizione_autumn":5,"punti_partecipazione":10,"punti_piazzamento":30,"totale_punti":40},
+      {"cognome":"CANZONIERO","nome":"CHRISTIAN","data_nascita":"17/09/2009","societa":"TKBM MANUEL BRUNO","cat_id":146,"categoria":"JUNIORES - M - KUMITE - MARRONE-NERA - -68 KG - -68 kg","posizione_autumn":7,"punti_partecipazione":10,"punti_piazzamento":20,"totale_punti":30},
+      {"cognome":"FIORI","nome":"MASSIMO","data_nascita":"16/06/2009","societa":"CSKT KHALID","cat_id":146,"categoria":"JUNIORES - M - KUMITE - MARRONE-NERA - -68 KG - -68 kg","posizione_autumn":7,"punti_partecipazione":10,"punti_piazzamento":20,"totale_punti":30},
+      {"cognome":"SANTAGATI","nome":"SALVATORE","data_nascita":"28/02/2010","societa":"ASD DE FILIPPIS","cat_id":146,"categoria":"JUNIORES - M - KUMITE - MARRONE-NERA - -68 KG - -68 kg","posizione_autumn":9,"punti_partecipazione":10,"punti_piazzamento":0,"totale_punti":10},
+      {"cognome":"DEL PACE","nome":"PAOLO","data_nascita":"28/05/2009","societa":"ACADEMY PISANTI","cat_id":149,"categoria":"JUNIORES - M - KUMITE - MARRONE-NERA - -76 KG - -76 kg","posizione_autumn":2,"punti_partecipazione":10,"punti_piazzamento":70,"totale_punti":80},
+      {"cognome":"CICUZZA","nome":"RICCARDO","data_nascita":"17/12/2010","societa":"ANPS GS FROSINONE ASD","cat_id":149,"categoria":"JUNIORES - M - KUMITE - MARRONE-NERA - -76 KG - -76 kg","posizione_autumn":3,"punti_partecipazione":10,"punti_piazzamento":50,"totale_punti":60},
+      {"cognome":"GREMO","nome":"GIOVANNI","data_nascita":"02/03/2009","societa":"TKBM MANUEL BRUNO","cat_id":149,"categoria":"JUNIORES - M - KUMITE - MARRONE-NERA - -76 KG - -76 kg","posizione_autumn":3,"punti_partecipazione":10,"punti_piazzamento":50,"totale_punti":60},
+      {"cognome":"TARITTERA","nome":"BENEDETTA","data_nascita":"05/01/2009","societa":"SHOTOKAN FIUGGI","cat_id":158,"categoria":"JUNIORES - F - KUMITE - MARRONE-NERA - -53 KG - -53 kg","posizione_autumn":1,"punti_partecipazione":10,"punti_piazzamento":100,"totale_punti":110},
+      {"cognome":"BRUNO","nome":"ANGELICA","data_nascita":"01/11/2010","societa":"TKBM MANUEL BRUNO","cat_id":158,"categoria":"JUNIORES - F - KUMITE - MARRONE-NERA - -53 KG - -53 kg","posizione_autumn":2,"punti_partecipazione":10,"punti_piazzamento":70,"totale_punti":80},
+      {"cognome":"BRUNO","nome":"AURORA","data_nascita":"01/11/2010","societa":"TKBM MANUEL BRUNO","cat_id":158,"categoria":"JUNIORES - F - KUMITE - MARRONE-NERA - -53 KG - -53 kg","posizione_autumn":2,"punti_partecipazione":10,"punti_piazzamento":70,"totale_punti":80},
+      {"cognome":"FRACASSI","nome":"MANUELA","data_nascita":"06/12/2010","societa":"ASD KARATE LION AVEZZANO","cat_id":164,"categoria":"JUNIORES - F - KUMITE - MARRONE-NERA - -66 KG - -66 kg","posizione_autumn":1,"punti_partecipazione":10,"punti_piazzamento":100,"totale_punti":110},
+      {"cognome":"GATTA","nome":"ILARIA","data_nascita":"22/03/2009","societa":"CSTK KARATE TEAM","cat_id":164,"categoria":"JUNIORES - F - KUMITE - MARRONE-NERA - -66 KG - -66 kg","posizione_autumn":2,"punti_partecipazione":10,"punti_piazzamento":70,"totale_punti":80},
+      {"cognome":"GABRIELE","nome":"CAROLINA","data_nascita":"19/02/2009","societa":"OTOKU VEROLI","cat_id":164,"categoria":"JUNIORES - F - KUMITE - MARRONE-NERA - -66 KG - -66 kg","posizione_autumn":3,"punti_partecipazione":10,"punti_piazzamento":50,"totale_punti":60},
+      {"cognome":"SACCO","nome":"NOEMI","data_nascita":"15/08/2010","societa":"TKBM MANUEL BRUNO","cat_id":164,"categoria":"JUNIORES - F - KUMITE - MARRONE-NERA - -66 KG - -66 kg","posizione_autumn":3,"punti_partecipazione":10,"punti_piazzamento":50,"totale_punti":60},
+      {"cognome":"TSOLKO","nome":"YANA","data_nascita":"22/09/2014","societa":"CSKT KHALID","cat_id":904,"categoria":"CADETTI E - F - KUMITE - MARRONE-NERA - -42 KG - -42 kg","posizione_autumn":1,"punti_partecipazione":10,"punti_piazzamento":100,"totale_punti":110},
+      {"cognome":"MUNDO","nome":"ELISA","data_nascita":"13/11/2015","societa":"ASD KARATE LION AVEZZANO","cat_id":904,"categoria":"CADETTI E - F - KUMITE - MARRONE-NERA - -42 KG - -42 kg","posizione_autumn":2,"punti_partecipazione":10,"punti_piazzamento":70,"totale_punti":80},
+      {"cognome":"ARAUJO GONZALES","nome":"GABRIEL ANTONIO","data_nascita":"16/09/2013","societa":"CPGA KARATEASD","cat_id":905,"categoria":"CADETTI E - M - KUMITE - MARRONE-NERA - -52 KG - -52 kg","posizione_autumn":1,"punti_partecipazione":10,"punti_piazzamento":100,"totale_punti":110},
+      {"cognome":"PEZZULLO","nome":"EDOARDO","data_nascita":"01/01/2013","societa":"TKBM MANUEL BRUNO","cat_id":905,"categoria":"CADETTI E - M - KUMITE - MARRONE-NERA - -52 KG - -52 kg","posizione_autumn":2,"punti_partecipazione":10,"punti_piazzamento":70,"totale_punti":80},
+      {"cognome":"FERRETTI","nome":"PIETRO","data_nascita":"21/02/2013","societa":"CPGA KARATEASD","cat_id":907,"categoria":"CADETTI E - M - KATA - MARRONE-NERA","posizione_autumn":1,"punti_partecipazione":10,"punti_piazzamento":100,"totale_punti":110},
+      {"cognome":"BALASSONE","nome":"FRANCESCO","data_nascita":"01/07/2014","societa":"CPGA KARATEASD","cat_id":907,"categoria":"CADETTI E - M - KATA - MARRONE-NERA","posizione_autumn":2,"punti_partecipazione":10,"punti_piazzamento":70,"totale_punti":80},
+      {"cognome":"PACIOTTA","nome":"LEONARDO","data_nascita":"17/07/2013","societa":"ANPS GS FROSINONE ASD","cat_id":907,"categoria":"CADETTI E - M - KATA - MARRONE-NERA","posizione_autumn":3,"punti_partecipazione":10,"punti_piazzamento":50,"totale_punti":60}
+    ];
+
+    // Normalizzazione e arricchimento dei record con indice originale
+    const RECORDS = RAW_DATA.map((item, idx) => {
+      const cognome = String(item.cognome || '').trim();
+      const nome = String(item.nome || '').trim();
+      const societa = String(item.societa || '').trim().replace(/\s+/g, ' ');
+      const categoria = String(item.categoria || '').trim();
+      const posizioneAutumn = Number(item.posizione_autumn);
+      const puntiPartecipazione = Number(item.punti_partecipazione);
+      const puntiPiazzamento = Number(item.punti_piazzamento);
+      const totalePunti = Number.isFinite(Number(item.totale_punti))
+        ? Number(item.totale_punti)
+        : (puntiPartecipazione + puntiPiazzamento);
+
+      return {
+        id: idx + 1,
+        cognome,
+        nome,
+        fullName: `${cognome} ${nome}`.trim(),
+        data_nascita: item.data_nascita || 'N/D',
+        societa,
+        cat_id: item.cat_id,
+        categoria,
+        posizione_autumn: posizioneAutumn,
+        punti_partecipazione: puntiPartecipazione,
+        punti_piazzamento: puntiPiazzamento,
+        totale_punti: totalePunti
+      };
+    });
+
+    // Stato globale dell'applicazione
+    const state = {
+      view: 'atleti', // 'atleti' | 'categorie'
+      search: '',
+      societa: '',
+      categoria: '',
+      sort: 'punti_desc', // 'punti_desc' | 'pos_asc' | 'cognome_asc'
+      expandedCategories: new Set()
+    };
+
+    // Elenco ordinato di Società e Categorie
+    const ALL_SOCIETA = [...new Set(RECORDS.map(r => r.societa))].sort((a, b) => a.localeCompare(b, 'it'));
+    const ALL_CATEGORIE = [...new Set(RECORDS.map(r => r.categoria))].sort((a, b) => a.localeCompare(b, 'it'));
+
+    // Espandi tutte le categorie per impostazione iniziale
+    ALL_CATEGORIE.forEach(cat => state.expandedCategories.add(cat));
+
+    // =========================================================================
+    // FUNZIONI DI UTILITÀ E FORMATTAZIONE
+    // =========================================================================
+
+    function escapeHtml(str) {
+      return String(str ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function escapeRegExp(str) {
+      return String(str).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    // Evidenzia il testo corrispondente alla ricerca senza rompere l'HTML
+    function highlightText(text, query) {
+      const safeText = escapeHtml(text);
+      const trimmed = query.trim();
+      if (!trimmed) return safeText;
+      const tokens = trimmed.split(/\s+/).filter(Boolean).map(escapeRegExp);
+      if (tokens.length === 0) return safeText;
+      const regex = new RegExp(`(${tokens.join('|')})`, 'gi');
+      return safeText.replace(regex, '<mark class="bg-amber-200 text-dojo-navy font-extrabold px-0.5 rounded">$1</mark>');
+    }
+
+    // Badge per Posizione Gara Autumn Karate Cup
+    function renderPosBadge(pos) {
+      if (pos === 1) {
+        return `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold bg-amber-100 text-amber-900 border border-amber-300 shadow-xs">
+          <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+          1° Posto
+        </span>`;
+      }
+      if (pos === 2) {
+        return `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold bg-slate-200 text-slate-800 border border-slate-300">
+          <span class="w-2 h-2 rounded-full bg-slate-500"></span>
+          2° Posto
+        </span>`;
+      }
+      if (pos === 3) {
+        return `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold bg-orange-100 text-orange-900 border border-orange-300">
+          <span class="w-2 h-2 rounded-full bg-orange-600"></span>
+          3° Posto
+        </span>`;
+      }
+      return `<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600 border border-slate-200">
+        ${escapeHtml(pos)}° Posto
+      </span>`;
+    }
+
+    // =========================================================================
+    // FILTRAGGIO, ORDINAMENTO E AGGREGAZIONE DATI
+    // =========================================================================
+
+    function getFilteredRecords() {
+      const q = state.search.trim().toLowerCase();
+      const tokens = q ? q.split(/\s+/).filter(Boolean) : [];
+
+      return RECORDS.filter(item => {
+        if (state.societa && item.societa !== state.societa) return false;
+        if (state.categoria && item.categoria !== state.categoria) return false;
+        if (tokens.length > 0) {
+          const haystack = `${item.cognome} ${item.nome} ${item.societa} ${item.categoria}`.toLowerCase();
+          const matchesAll = tokens.every(t => haystack.includes(t));
+          if (!matchesAll) return false;
+        }
+        return true;
+      });
+    }
+
+    function sortRecords(list) {
+      const copy = [...list];
+      copy.sort((a, b) => {
+        if (state.sort === 'punti_desc') {
+          if (b.totale_punti !== a.totale_punti) return b.totale_punti - a.totale_punti;
+          if (a.posizione_autumn !== b.posizione_autumn) return a.posizione_autumn - b.posizione_autumn;
+          return a.cognome.localeCompare(b.cognome, 'it') || a.nome.localeCompare(b.nome, 'it');
+        }
+        if (state.sort === 'pos_asc') {
+          if (a.posizione_autumn !== b.posizione_autumn) return a.posizione_autumn - b.posizione_autumn;
+          if (b.totale_punti !== a.totale_punti) return b.totale_punti - a.totale_punti;
+          return a.cognome.localeCompare(b.cognome, 'it') || a.nome.localeCompare(b.nome, 'it');
+        }
+        // cognome_asc
+        return (
+          a.cognome.localeCompare(b.cognome, 'it') ||
+          a.nome.localeCompare(b.nome, 'it') ||
+          b.totale_punti - a.totale_punti
+        );
+      });
+      return copy;
+    }
+
+    // =========================================================================
+    // AGGIORNAMENTO KPI, FILTRI E BANNER SOCIETÀ
+    // =========================================================================
+
+    function updateKPIs(filtered) {
+      const totalPoints = filtered.reduce((acc, r) => acc + r.totale_punti, 0);
+      const uniqueCats = new Set(filtered.map(r => r.categoria)).size;
+      const uniqueSocs = new Set(filtered.map(r => r.societa)).size;
+
+      document.getElementById('kpi-iscrizioni').textContent = filtered.length.toLocaleString('it-IT');
+      document.getElementById('kpi-iscrizioni-sub').textContent =
+        filtered.length === RECORDS.length
+          ? 'Su 82 iscrizioni/risultati ufficiali'
+          : `Filtrati su ${RECORDS.length} risultati totali`;
+
+      document.getElementById('kpi-categorie').textContent = uniqueCats.toLocaleString('it-IT');
+      document.getElementById('kpi-categorie-sub').textContent =
+        uniqueCats === ALL_CATEGORIE.length ? 'Tutte le 20 categorie attive' : `Su ${ALL_CATEGORIE.length} categorie totali`;
+
+      document.getElementById('kpi-societa').textContent = uniqueSocs.toLocaleString('it-IT');
+      document.getElementById('kpi-societa-sub').textContent =
+        uniqueSocs === ALL_SOCIETA.length ? 'Tutte le 23 società presenti' : `Su ${ALL_SOCIETA.length} società totali`;
+
+      document.getElementById('kpi-punti').textContent = totalPoints.toLocaleString('it-IT');
+    }
+
+    function updateFiltersUI(filtered) {
+      const clearBtn = document.getElementById('clear-search-btn');
+      clearBtn.classList.toggle('hidden', !state.search.trim());
+
+      const hasAnyFilter = Boolean(state.search.trim() || state.societa || state.categoria);
+      document.getElementById('reset-all-btn').classList.toggle('hidden', !hasAnyFilter);
+
+      const catControls = document.getElementById('category-expand-controls');
+      catControls.classList.toggle('hidden', state.view !== 'categorie');
+      catControls.classList.toggle('flex', state.view === 'categorie');
+
+      const summaryEl = document.getElementById('active-filters-summary');
+      const badges = [];
+
+      if (state.search.trim()) {
+        badges.push(`<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 font-semibold text-xs">Nome/Cognome: "${escapeHtml(state.search.trim())}"</span>`);
+      }
+      if (state.societa) {
+        badges.push(`<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-navy/10 bg-slate-100 text-slate-800 font-semibold text-xs">Società: ${escapeHtml(state.societa)}</span>`);
+      }
+      if (state.categoria) {
+        badges.push(`<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-red-50 text-dojo-crimson font-semibold text-xs">Categoria: ${escapeHtml(state.categoria)}</span>`);
+      }
+
+      if (badges.length === 0) {
+        summaryEl.innerHTML = `<span class="text-slate-600">Mostrando <strong class="text-slate-900">${filtered.length}</strong> risultati ufficiali post <em>Autumn Karate Cup</em>.</span>`;
+      } else {
+        summaryEl.innerHTML = `<span class="text-slate-700 font-medium">${filtered.length} risultati trovati</span> ${badges.join(' ')}`;
+      }
+
+      // Aggiorna banner Società selezionata
+      const banner = document.getElementById('selected-societa-banner');
+      if (state.societa) {
+        const socRecords = RECORDS.filter(r => r.societa === state.societa);
+        const ori = socRecords.filter(r => r.posizione_autumn === 1).length;
+        const argenti = socRecords.filter(r => r.posizione_autumn === 2).length;
+        const bronzi = socRecords.filter(r => r.posizione_autumn === 3).length;
+        const totPunti = socRecords.reduce((s, r) => s + r.totale_punti, 0);
+        const catsCount = new Set(socRecords.map(r => r.categoria)).size;
+
+        banner.classList.remove('hidden');
+        document.getElementById('soc-banner-title').textContent = state.societa;
+        document.getElementById('soc-banner-sub').textContent =
+          `Riepilogo complessivo della società su ${catsCount} ${catsCount === 1 ? 'categoria' : 'categorie'} (Autumn Karate Cup)`;
+        document.getElementById('soc-stat-iscr').textContent = socRecords.length;
+        document.getElementById('soc-stat-oro').textContent = ori;
+        document.getElementById('soc-stat-argento').textContent = argenti;
+        document.getElementById('soc-stat-bronzo').textContent = bronzi;
+        document.getElementById('soc-stat-punti').textContent = totPunti.toLocaleString('it-IT');
+      } else {
+        banner.classList.add('hidden');
+      }
+    }
+
+    // =========================================================================
+    // RENDERIZZAZIONE DELLE VISTE
+    // =========================================================================
+
+    function renderEmptyState(container) {
+      container.innerHTML = `
+        <div class="bg-white rounded-2xl border border-slate-200 p-10 text-center shadow-sm">
+          <div class="w-12 h-12 rounded-2xl bg-red-50 text-dojo-crimson flex items-center justify-center mx-auto mb-3">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-extrabold text-slate-900">Nessun risultato trovato</h3>
+          <p class="text-sm text-slate-500 mt-1 max-w-md mx-auto">
+            Prova a modificare il nome cercato oppure a reimpostare i filtri su Società e Categoria.
+          </p>
+          <button
+            type="button"
+            onclick="resetAllFilters()"
+            class="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-dojo-crimson hover:bg-dojo-crimsonDark text-white text-sm font-bold transition cursor-pointer"
+          >
+            Reimposta tutti i filtri
+          </button>
+        </div>
+      `;
+    }
+
+    // 1. VISTA CLASSIFICA ATLETI (Tabella su desktop + Card su mobile)
+    function renderAtletiView(container, filtered) {
+      const sorted = sortRecords(filtered);
+      if (sorted.length === 0) {
+        renderEmptyState(container);
+        return;
+      }
+
+      const rowsDesktop = sorted.map((r, index) => {
+        const isTop3 = r.posizione_autumn <= 3;
+        const rowBg = r.posizione_autumn === 1
+          ? 'bg-amber-50/45 hover:bg-amber-50/80'
+          : 'hover:bg-slate-50';
+
+        return `
+          <tr class="${rowBg} border-b border-slate-100 transition print-break-inside-avoid">
+            <td class="py-3.5 px-4 text-xs font-bold text-slate-400 tabular-nums">#${index + 1}</td>
+            <td class="py-3.5 px-4">
+              <div class="font-extrabold text-slate-900 text-sm">${highlightText(r.cognome, state.search)} <span class="font-bold text-slate-700">${highlightText(r.nome, state.search)}</span></div>
+              <div class="text-[11px] text-slate-400 mt-0.5">Nascita: ${escapeHtml(r.data_nascita)}</div>
+            </td>
+            <td class="py-3.5 px-4">
+              <button
+                type="button"
+                onclick="selectSocietaFromList('${escapeHtml(r.societa.replace(/'/g, "\\'"))}')"
+                class="text-left text-xs sm:text-sm font-semibold text-dojo-navy hover:text-dojo-crimson underline decoration-slate-300 hover:decoration-dojo-crimson underline-offset-2 transition cursor-pointer"
+                title="Filtra per questa società"
+              >
+                ${escapeHtml(r.societa)}
+              </button>
+            </td>
+            <td class="py-3.5 px-4 max-w-xs">
+              <button
+                type="button"
+                onclick="selectCategoriaFromList('${escapeHtml(r.categoria.replace(/'/g, "\\'"))}')"
+                class="text-left text-xs font-semibold text-slate-600 hover:text-dojo-crimson bg-slate-100 hover:bg-red-50 px-2.5 py-1 rounded-lg transition cursor-pointer leading-snug"
+                title="Filtra per questa categoria"
+              >
+                ${escapeHtml(r.categoria)}
+              </button>
+            </td>
+            <td class="py-3.5 px-4 whitespace-nowrap">
+              ${renderPosBadge(r.posizione_autumn)}
+            </td>
+            <td class="py-3.5 px-4 text-right font-semibold text-slate-700 text-sm tabular-nums whitespace-nowrap">
+              ${r.punti_partecipazione.toLocaleString('it-IT')}
+            </td>
+            <td class="py-3.5 px-4 text-right font-semibold text-slate-700 text-sm tabular-nums whitespace-nowrap">
+              ${r.punti_piazzamento.toLocaleString('it-IT')}
+            </td>
+            <td class="py-3.5 px-4 text-right whitespace-nowrap">
+              <span class="inline-flex items-center justify-center min-w-[3.5rem] px-3 py-1 rounded-xl text-sm font-black tabular-nums ${
+                isTop3
+                  ? 'bg-dojo-navy text-amber-300 shadow-xs'
+                  : 'bg-slate-900 text-white'
+              }">
+                ${r.totale_punti.toLocaleString('it-IT')}
+              </span>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      const cardsMobile = sorted.map((r, index) => `
+        <article class="bg-white rounded-2xl border border-slate-200/90 p-4 shadow-sm print-break-inside-avoid ${r.posizione_autumn === 1 ? 'ring-1 ring-amber-300' : ''}">
+          <div class="flex items-start justify-between gap-2 mb-2.5">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-400 tabular-nums">#${index + 1}</span>
+                ${renderPosBadge(r.posizione_autumn)}
+              </div>
+              <h3 class="text-base font-black text-slate-900 mt-1.5 leading-snug">
+                ${highlightText(r.cognome, state.search)} <span class="font-bold text-slate-700">${highlightText(r.nome, state.search)}</span>
+              </h3>
+            </div>
+
+            <div class="text-right shrink-0 bg-dojo-navy text-white rounded-xl px-3 py-1.5">
+              <div class="text-[10px] uppercase tracking-wider text-amber-300 font-bold">Totale dei Punti</div>
+              <div class="text-lg font-black text-amber-300 tabular-nums leading-tight">${r.totale_punti.toLocaleString('it-IT')}</div>
+            </div>
+          </div>
+
+          <div class="space-y-1.5 text-xs mb-3">
+            <div>
+              <span class="text-slate-400 font-medium">Società:</span>
+              <button
+                type="button"
+                onclick="selectSocietaFromList('${escapeHtml(r.societa.replace(/'/g, "\\'"))}')"
+                class="ml-1 font-bold text-dojo-navy hover:text-dojo-crimson underline decoration-slate-300 cursor-pointer"
+              >
+                ${escapeHtml(r.societa)}
+              </button>
+            </div>
+            <div>
+              <span class="text-slate-400 font-medium">Categoria:</span>
+              <span class="ml-1 font-semibold text-slate-700">${escapeHtml(r.categoria)}</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-2 pt-3 border-t border-slate-100 text-center">
+            <div class="bg-slate-50 rounded-xl p-2">
+              <div class="text-[10px] font-bold text-slate-500 leading-tight">Posizione Gara Autumn Karate Cup</div>
+              <div class="text-xs font-extrabold text-slate-900 mt-1">${escapeHtml(r.posizione_autumn)}°</div>
+            </div>
+            <div class="bg-slate-50 rounded-xl p-2">
+              <div class="text-[10px] font-bold text-slate-500 leading-tight">Punti Partecipazione</div>
+              <div class="text-xs font-extrabold text-slate-900 mt-1 tabular-nums">${r.punti_partecipazione.toLocaleString('it-IT')}</div>
+            </div>
+            <div class="bg-slate-50 rounded-xl p-2">
+              <div class="text-[10px] font-bold text-slate-500 leading-tight">Punti Piazzamento Talent</div>
+              <div class="text-xs font-extrabold text-slate-900 mt-1 tabular-nums">${r.punti_piazzamento.toLocaleString('it-IT')}</div>
+            </div>
+          </div>
+        </article>
+      `).join('');
+
+      container.innerHTML = `
+        <!-- Tabella Desktop / Tablet largo -->
+        <div class="hidden md:block bg-white rounded-2xl shadow-sm border border-slate-200/90 overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-dojo-navy text-white text-[11px] uppercase tracking-wider">
+                  <th class="py-3.5 px-4 font-bold">#</th>
+                  <th class="py-3.5 px-4 font-bold">Atleta</th>
+                  <th class="py-3.5 px-4 font-bold">Società</th>
+                  <th class="py-3.5 px-4 font-bold">Categoria</th>
+                  <th class="py-3.5 px-4 font-bold">Posizione Gara Autumn Karate Cup</th>
+                  <th class="py-3.5 px-4 font-bold text-right">Punti Partecipazione</th>
+                  <th class="py-3.5 px-4 font-bold text-right">Punti Piazzamento Talent</th>
+                  <th class="py-3.5 px-4 font-bold text-right text-amber-300">Totale dei Punti</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${rowsDesktop}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Card Mobile -->
+        <div class="md:hidden space-y-3">
+          ${cardsMobile}
+        </div>
+      `;
+    }
+
+    // 2. VISTA RAGGRUPPA PER CATEGORIA
+    function renderCategorieView(container, filtered) {
+      if (filtered.length === 0) {
+        renderEmptyState(container);
+        return;
+      }
+
+      // Raggruppa per categoria
+      const groupsMap = new Map();
+      filtered.forEach(item => {
+        if (!groupsMap.has(item.categoria)) {
+          groupsMap.set(item.categoria, []);
+        }
+        groupsMap.get(item.categoria).push(item);
+      });
+
+      const sortedCategories = [...groupsMap.keys()].sort((a, b) => a.localeCompare(b, 'it'));
+
+      const blocksHtml = sortedCategories.map(catName => {
+        const athletes = sortRecords(groupsMap.get(catName));
+        const isExpanded = state.expandedCategories.has(catName) || Boolean(state.search.trim());
+        const podiCount = athletes.filter(a => a.posizione_autumn <= 3).length;
+        const catTotalPoints = athletes.reduce((sum, a) => sum + a.totale_punti, 0);
+
+        const athleteRows = athletes.map(r => `
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 py-3 px-4 sm:px-5 border-t border-slate-100 hover:bg-slate-50/90 transition print-break-inside-avoid">
+            <div class="flex items-start sm:items-center gap-3 min-w-0">
+              <div class="shrink-0">
+                ${renderPosBadge(r.posizione_autumn)}
+              </div>
+              <div class="min-w-0">
+                <div class="font-extrabold text-sm text-slate-900">
+                  ${highlightText(r.cognome, state.search)} <span class="font-bold text-slate-700">${highlightText(r.nome, state.search)}</span>
+                </div>
+                <div class="text-xs text-slate-500 mt-0.5">
+                  <button
+                    type="button"
+                    onclick="event.stopPropagation(); selectSocietaFromList('${escapeHtml(r.societa.replace(/'/g, "\\'"))}')"
+                    class="font-semibold text-dojo-navy hover:text-dojo-crimson underline decoration-slate-300 cursor-pointer"
+                  >
+                    ${escapeHtml(r.societa)}
+                  </button>
+                  <span class="mx-1.5 text-slate-300">•</span>
+                  <span>Nascita: ${escapeHtml(r.data_nascita)}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4 campi richiesti esplicitati chiaramente -->
+            <div class="grid grid-cols-2 sm:flex sm:items-center gap-2 sm:gap-4 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-100">
+              <div class="bg-slate-50 sm:bg-transparent rounded-lg px-2.5 py-1 sm:p-0 text-left sm:text-right">
+                <div class="text-[10px] font-bold text-slate-400">Posizione Gara Autumn Karate Cup</div>
+                <div class="text-xs font-extrabold text-slate-800">${escapeHtml(r.posizione_autumn)}°</div>
+              </div>
+              <div class="bg-slate-50 sm:bg-transparent rounded-lg px-2.5 py-1 sm:p-0 text-left sm:text-right">
+                <div class="text-[10px] font-bold text-slate-400">Punti Partecipazione</div>
+                <div class="text-xs font-bold text-slate-700 tabular-nums">${r.punti_partecipazione.toLocaleString('it-IT')}</div>
+              </div>
+              <div class="bg-slate-50 sm:bg-transparent rounded-lg px-2.5 py-1 sm:p-0 text-left sm:text-right">
+                <div class="text-[10px] font-bold text-slate-400">Punti Piazzamento Talent</div>
+                <div class="text-xs font-bold text-slate-700 tabular-nums">${r.punti_piazzamento.toLocaleString('it-IT')}</div>
+              </div>
+              <div class="bg-dojo-navy text-amber-300 rounded-xl px-3 py-1.5 text-right">
+                <div class="text-[10px] font-bold uppercase tracking-wider text-amber-200/90">Totale dei Punti</div>
+                <div class="text-sm font-black tabular-nums leading-tight">${r.totale_punti.toLocaleString('it-IT')}</div>
+              </div>
+            </div>
+          </div>
+        `).join('');
+
+        return `
+          <section class="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden print-break-inside-avoid">
+            <button
+              type="button"
+              onclick="toggleCategory('${escapeHtml(catName.replace(/'/g, "\\'"))}')"
+              class="w-full text-left px-4 sm:px-5 py-4 bg-gradient-to-r from-slate-50 to-white hover:from-slate-100/70 hover:to-slate-50 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 transition cursor-pointer"
+            >
+              <div class="flex items-center gap-3 min-w-0">
+                <span class="w-7 h-7 rounded-lg bg-dojo-navy text-white text-xs font-bold flex items-center justify-center shrink-0 transition-transform ${isExpanded ? 'rotate-90' : ''}">
+                  ▸
+                </span>
+                <div class="min-w-0">
+                  <h3 class="text-sm sm:text-base font-black text-dojo-navy break-words">
+                    ${escapeHtml(catName)}
+                  </h3>
+                  <div class="text-xs text-slate-500 mt-0.5">
+                    <strong class="text-slate-700">${athletes.length}</strong> ${athletes.length === 1 ? 'iscritto' : 'iscritti'}
+                    <span class="mx-1.5">•</span>
+                    <strong class="text-amber-700">${podiCount}</strong> piazzamenti sul podio (1°–3°)
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-2 self-end sm:self-center shrink-0">
+                <span class="text-xs font-bold text-slate-500">Totale categoria:</span>
+                <span class="px-3 py-1 rounded-xl bg-red-50 text-dojo-crimson border border-red-200 text-xs sm:text-sm font-black tabular-nums">
+                  ${catTotalPoints.toLocaleString('it-IT')} pt
+                </span>
+              </div>
+            </button>
+
+            <div class="${isExpanded ? 'block' : 'hidden'}">
+              ${athleteRows}
+            </div>
+          </section>
+        `;
+      }).join('');
+
+      container.innerHTML = `
+        <div class="mb-4 flex items-center justify-between">
+          <h2 class="text-lg sm:text-xl font-black text-dojo-navy">
+            Classifica per Categoria <span class="text-sm font-semibold text-slate-500">(${sortedCategories.length} ${sortedCategories.length === 1 ? 'categoria' : 'categorie'})</span>
+          </h2>
+        </div>
+        <div class="space-y-4">
+          ${blocksHtml}
+        </div>
+      `;
+    }
+
+    function render() {
+      const filtered = getFilteredRecords();
+      updateKPIs(filtered);
+      updateFiltersUI(filtered);
+
+      const container = document.getElementById('app-content');
+      if (state.view === 'atleti') {
+        renderAtletiView(container, filtered);
+      } else if (state.view === 'categorie') {
+        renderCategorieView(container, filtered);
+      }
+    }
+
+    // =========================================================================
+    // HANDLER EVENTI E CONTROLLI
+    // =========================================================================
+
+    function setView(viewName) {
+      state.view = viewName === 'categorie' ? 'categorie' : 'atleti';
+
+      const tabs = {
+        atleti: document.getElementById('btn-view-atleti'),
+        categorie: document.getElementById('btn-view-categorie')
+      };
+
+      Object.entries(tabs).forEach(([key, el]) => {
+        if (!el) return;
+        if (key === state.view) {
+          el.className = 'view-tab py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition text-center cursor-pointer bg-dojo-crimson text-white shadow';
+        } else {
+          el.className = 'view-tab py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition text-center cursor-pointer text-slate-300 hover:text-white hover:bg-white/5';
+        }
+      });
+
+      render();
+    }
+
+    function handleSearchInput(val) {
+      state.search = val;
+      render();
+    }
+
+    function clearSearch() {
+      state.search = '';
+      const input = document.getElementById('search-input');
+      input.value = '';
+      input.focus();
+      render();
+    }
+
+    function handleSocietaChange(val) {
+      state.societa = val;
+      render();
+    }
+
+    function handleCategoriaChange(val) {
+      state.categoria = val;
+      if (val) {
+        state.expandedCategories.add(val);
+      }
+      render();
+    }
+
+    function handleSortChange(val) {
+      state.sort = val;
+      render();
+    }
+
+    function selectSocietaFromList(societaName) {
+      state.societa = societaName;
+      document.getElementById('societa-select').value = societaName;
+      render();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function selectCategoriaFromList(categoriaName) {
+      state.categoria = categoriaName;
+      document.getElementById('categoria-select').value = categoriaName;
+      state.expandedCategories.add(categoriaName);
+      render();
+    }
+
+    function toggleCategory(catName) {
+      if (state.expandedCategories.has(catName)) {
+        state.expandedCategories.delete(catName);
+      } else {
+        state.expandedCategories.add(catName);
+      }
+      render();
+    }
+
+    function setAllCategoriesExpanded(expand) {
+      if (expand) {
+        ALL_CATEGORIE.forEach(c => state.expandedCategories.add(c));
+      } else {
+        state.expandedCategories.clear();
+      }
+      render();
+    }
+
+    function resetAllFilters() {
+      state.search = '';
+      state.societa = '';
+      state.categoria = '';
+      state.sort = 'punti_desc';
+
+      document.getElementById('search-input').value = '';
+      document.getElementById('societa-select').value = '';
+      document.getElementById('categoria-select').value = '';
+      document.getElementById('sort-select').value = 'punti_desc';
+
+      ALL_CATEGORIE.forEach(c => state.expandedCategories.add(c));
+      render();
+    }
+
+    // Popolamento dinamico dei menu a tendina Società e Categorie
+    function initSelectOptions() {
+      const socSelect = document.getElementById('societa-select');
+      ALL_SOCIETA.forEach(soc => {
+        const opt = document.createElement('option');
+        opt.value = soc;
+        opt.textContent = soc;
+        socSelect.appendChild(opt);
+      });
+
+      const catSelect = document.getElementById('categoria-select');
+      ALL_CATEGORIE.forEach(cat => {
+        const opt = document.createElement('option');
+        opt.value = cat;
+        opt.textContent = cat;
+        catSelect.appendChild(opt);
+      });
+    }
+
+    // Avvio dell'applicazione al caricamento del DOM
+    document.addEventListener('DOMContentLoaded', () => {
+      initSelectOptions();
+      render();
+    });
+  </script>
+</body>
+</html>
